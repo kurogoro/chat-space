@@ -55,8 +55,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user-id|integer|null: false, foreign_key: true|
-|group-id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -70,8 +70,8 @@ Things you may want to cover:
 |------|----|-------|
 |body|text|null: false|
 |image|string|null: true|
-|user-id|integer|null: false, foreign_key: true|
-|group-id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 
