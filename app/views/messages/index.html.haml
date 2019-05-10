@@ -8,19 +8,19 @@
         kurogoro
       %ul.user-menu
         %li.user-menu__edit-user
-          %a(href="")
+          = link_to ""
             %i.fa.fa-edit
         %li.user-menu__new-group
-          %a(href="")
+          = link_to ""
             %i.fa.fa-cog
     .groups
-      %a(href="")
+      = link_to ""
         .group
           .group__group-name<
             kurogoro-group
           .group__latest-message<
             iine!
-      %a(href="")
+      = link_to ""
         .group
           .group__group-name<
             tarojiro-group
@@ -37,7 +37,7 @@
             kurogoro
           %li.member-list__member<
             tarojiro
-      %a(href="" style="text-decoration: none;")
+      = link_to "" style: "text-decoration: none;"
         .main-header__edit-btn<
           Edit
     .messages
