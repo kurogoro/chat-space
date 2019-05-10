@@ -1,0 +1,8 @@
+.form
+  %form.new-message#new_message
+    .input-box
+      %input.input-box__text#message_content(placeholder="type a message" type="text")
+      %label.image-label(for="message_image")
+        %i.fa.fa-image
+        %input.image-label__input#message_image(type="file")
+    %input.new-message__submit-btn(type="submit" value="Send")
