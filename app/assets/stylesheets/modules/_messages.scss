@@ -1,0 +1,28 @@
+.messages {
+  height: calc(100vh - 190px);
+  padding: 46px 40px;
+  background-color: #fafafa;
+  overflow: scroll;
+  .message {
+    padding-bottom: 40px;
+    .upper-info {
+      display: flex;
+      margin-bottom: 10px;
+      &__user {
+        color: $middle_font_color;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__date {
+        color: $small_font_color;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    }
+    &_text {
+      color: $middle_font_color;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  }
+}

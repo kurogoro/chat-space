@@ -1,0 +1,10 @@
+.flash-box {
+  color: $white_font_color;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: lighter;
+  width: 100vw;
+  .notice {
+    background-color: $strong_bgd_color;
+  }
+}

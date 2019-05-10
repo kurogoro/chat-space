@@ -1,0 +1,69 @@
+.flash-box
+  .notice<
+    グループを作成しました
+.wrapper
+  .chat-side
+    .side-header
+      %p.side-header__user-name<
+        kurogoro
+      %ul.user-menu
+        %li.user-menu__edit-user
+          = link_to ""
+            %i.fa.fa-edit
+        %li.user-menu__new-group
+          = link_to ""
+            %i.fa.fa-cog
+    .groups
+      = link_to ""
+        .group
+          .group__group-name<
+            kurogoro-group
+          .group__latest-message<
+            iine!
+      = link_to ""
+        .group
+          .group__group-name<
+            tarojiro-group
+          .group__latest-message<
+            yahhoo!
+  .chat-main
+    .main-header
+      .current-group
+        %h2.current-group__name<
+          kurogoro-group
+        %ul.member-list
+          Member :&nbsp;
+          %li.member-list__member<
+            kurogoro
+          %li.member-list__member<
+            tarojiro
+      = link_to "" style: "text-decoration: none;"
+        .main-header__edit-btn<
+          Edit
+    .messages
+      .message
+        .upper-info
+          %p.upper-info__user<
+            kurogoro
+          %p.upper-info__date<
+            2019/05/01(Wed)00:00:00
+        %p.message__text<
+          iine!
+      .message
+        .upper-info
+          %p.upper-info__user<
+            tarojiro
+          %p.upper-info__date<
+            2019/05/03(Fri)12:00:00
+        %p.message__text<
+          yattane!
+    .form
+      %form.new-message#new_message
+        -# %input
+        -# %input
+        .input-box
+          %input.input-box__text#message_content(placeholder="type a message" type="text")
+          %label.image-label(for="message_image")
+            %i.fa.fa-image
+            %input.image-label__input#message_image(type="file")
+        %input.new-message__submit-btn(type="submit" value="Send")
