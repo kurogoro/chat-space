@@ -4,5 +4,5 @@
       = f.text_field :content, class: 'input_box__text', placeholder: 'type a message'
       = f.label :image, class: 'image-label' do
         = fa_icon 'picture-o', class: 'icon'
-        = f.file_field :image, class: 'hidden'
+        = f.file_field :image, class: 'hidden input_box__image'
     = f.submit 'Send', class: 'form__submit'
