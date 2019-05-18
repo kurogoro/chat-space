@@ -30,8 +30,7 @@ $(function() {
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-      $('.input_box__text').val('');
-      $('.input_box__image').val('');
+      $('.new_message')[0].reset();
     })
     .fail(function(){
       alert('メッセージの保存に失敗しました');
