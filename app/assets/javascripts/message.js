@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
   function buildHTML(message){
-    var html = `<div class="message">
+    var html = `<div class="message" data-id="${ message.id }">
                   <div class="upper-info">
                     <p class="upper-info__user">${message.user_name}</p>
                     <p class="upper-info__date">${message.created_at}</p>
@@ -14,6 +14,7 @@ $(document).on('turbolinks:load', function() {
     var html = html + `</div>`
     return html;
   }
+
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -39,4 +40,33 @@ $(document).on('turbolinks:load', function() {
       $('.form__submit').removeAttr('disabled');
     })
   });
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data("id");
+    var group_id =  $('.current-group').data("id");
+    var url = `/groups/${ group_id }/api/messages`;
+    $.ajax({
+      url: url,
+      type: 'get',
+      dataType: 'json',
+      data: {last_message_id: last_message_id},
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) { 
+        var insertHTML  = '';
+        messages.forEach(function(message){
+          insertHTML += buildHTML(message);
+        });
+        $(".messages").append(insertHTML);
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      }
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+
+  if($('body').data("controllerName") === "messages" && $('body').data("actionName") === "index"){
+    setInterval(reloadMessages, 5000);
+  }
 });
