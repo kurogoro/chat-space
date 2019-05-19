@@ -43,12 +43,13 @@ $(document).on('turbolinks:load', function() {
 
   var reloadMessages = function() {
     var last_message_id = $('.message:last').data("id");
+    var group_id =  $('.current-group').data("id");
     var url = `/groups/${ group_id }/api/messages`;
     $.ajax({
       url: url,
       type: 'get',
       dataType: 'json',
-      data: {id: last_message_id}
+      data: {last_message_id: last_message_id},
     })
     .done(function(messages) {
       var insertHTML  = '';
@@ -63,5 +64,7 @@ $(document).on('turbolinks:load', function() {
     });
   };
 
-  setInterval(reloadMessages, 5000);
+  if($('body').data("controllerName") === "messages" && $('body').data("actionName") === "index"){
+    setInterval(reloadMessages, 5000);
+  }
 });
