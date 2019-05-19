@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
   function buildHTML(message){
-    var html = `<div class="message">
+    var html = `<div class="message" data-id="${ message.id }">
                   <div class="upper-info">
                     <p class="upper-info__user">${message.user_name}</p>
                     <p class="upper-info__date">${message.created_at}</p>
@@ -14,6 +14,7 @@ $(document).on('turbolinks:load', function() {
     var html = html + `</div>`
     return html;
   }
+
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -50,7 +51,11 @@ $(document).on('turbolinks:load', function() {
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      console.log('success');
+      var insertHTML  = '';
+      messages.forEach(function(message){
+        insertHTML += buildHTML(message);
+      });
+      $(".messages").append(insertHTML);
     })
     .fail(function() {
       console.log('error');
