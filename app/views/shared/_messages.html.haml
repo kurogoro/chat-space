@@ -1,6 +1,6 @@
 .messages
   - @messages.each do |message|
-    .message
+    .message{data: {id: message.id}}
       .upper-info
         %p.upper-info__user
           = message.user.name
