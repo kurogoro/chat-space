@@ -39,4 +39,21 @@ $(document).on('turbolinks:load', function() {
       $('.form__submit').removeAttr('disabled');
     })
   });
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data("id");
+    var url = `/groups/${ group_id }/api/messages`;
+    $.ajax({
+      url: url,
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      console.log('success');
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
 });
