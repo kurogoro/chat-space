@@ -6,8 +6,12 @@ CarrierWave.configure do |config|
   config.storage = :fog
   config.fog_provider = 'fog/aws'
   puts "test"
+  puts "#{Rails.application.secrets.aws_access_key_id}"
+  puts "#{Rails.application.secrets.aws_secret_access_key}"
   config.fog_credentials = {
-    provider: 'AWS',
+    provider: 'AWS'
+  }
+  config.fog_credentials = {
     aws_access_key_id: Rails.application.secrets.aws_access_key_id,
     aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,
     region: 'ap-northeast-1'
